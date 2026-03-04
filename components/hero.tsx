@@ -1,9 +1,23 @@
 "use client"
 
+import { useCallback } from "react"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 
 export function Hero() {
+  const handleSmoothScroll = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      e.preventDefault()
+      const target = document.querySelector(href)
+      if (target) {
+        const navHeight = 80
+        const top = target.getBoundingClientRect().top + window.scrollY - navHeight
+        window.scrollTo({ top, behavior: "smooth" })
+      }
+    },
+    []
+  )
+
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
       {/* Background image */}
@@ -37,6 +51,7 @@ export function Hero() {
         <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
             href="#contact"
+            onClick={(e) => handleSmoothScroll(e, "#contact")}
             className="group inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-[0_0_32px_rgba(10,132,255,0.3)] transition-all hover:shadow-[0_0_48px_rgba(10,132,255,0.5)] hover:brightness-110"
           >
             Book Appointment
@@ -44,6 +59,7 @@ export function Hero() {
           </a>
           <a
             href="#services"
+            onClick={(e) => handleSmoothScroll(e, "#services")}
             className="inline-flex items-center gap-2 rounded-full border border-border px-8 py-4 text-base font-medium text-foreground transition-all hover:border-muted-foreground hover:bg-secondary"
           >
             Explore Services

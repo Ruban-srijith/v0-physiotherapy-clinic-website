@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { Menu, X } from "lucide-react"
 
 const navLinks = [
@@ -20,6 +20,24 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
+  const handleSmoothScroll = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      e.preventDefault()
+      setMobileOpen(false)
+      if (href === "#") {
+        window.scrollTo({ top: 0, behavior: "smooth" })
+        return
+      }
+      const target = document.querySelector(href)
+      if (target) {
+        const navHeight = 80
+        const top = target.getBoundingClientRect().top + window.scrollY - navHeight
+        window.scrollTo({ top, behavior: "smooth" })
+      }
+    },
+    []
+  )
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -29,7 +47,11 @@ export function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <a href="#" className="text-xl font-bold tracking-tight text-foreground">
+        <a
+          href="#"
+          onClick={(e) => handleSmoothScroll(e, "#")}
+          className="text-xl font-bold tracking-tight text-foreground"
+        >
           Apex<span className="text-primary">Physio</span>
         </a>
 
@@ -39,6 +61,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
+              onClick={(e) => handleSmoothScroll(e, link.href)}
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
@@ -46,6 +69,7 @@ export function Navbar() {
           ))}
           <a
             href="#contact"
+            onClick={(e) => handleSmoothScroll(e, "#contact")}
             className="rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-all hover:brightness-110"
           >
             Book Appointment
@@ -70,7 +94,7 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={() => setMobileOpen(false)}
+                onClick={(e) => handleSmoothScroll(e, link.href)}
                 className="rounded-lg px-4 py-3 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
               >
                 {link.label}
@@ -78,7 +102,7 @@ export function Navbar() {
             ))}
             <a
               href="#contact"
-              onClick={() => setMobileOpen(false)}
+              onClick={(e) => handleSmoothScroll(e, "#contact")}
               className="mt-2 rounded-full bg-primary px-5 py-3 text-center text-sm font-medium text-primary-foreground transition-all hover:brightness-110"
             >
               Book Appointment
