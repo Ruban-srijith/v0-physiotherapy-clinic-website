@@ -3,6 +3,7 @@
 import { useCallback } from "react"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
+import { FadeIn } from "./fade-in"
 
 export function Hero() {
   const handleSmoothScroll = useCallback(
@@ -20,7 +21,7 @@ export function Hero() {
   )
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
+    <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
@@ -30,50 +31,63 @@ export function Hero() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-5xl px-6 py-32 text-center lg:px-8">
-        <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-card px-4 py-1.5 shadow-sm">
-          <span className="h-2 w-2 rounded-full bg-primary" />
-          <span className="text-sm font-medium text-primary">
-            Premium Physiotherapy
-          </span>
-        </div>
-        <h1 className="text-balance text-5xl font-bold leading-[1.08] tracking-tight text-heading md:text-7xl lg:text-8xl">
-          Your body deserves
-          <br />
-          <span className="text-primary">expert care.</span>
-        </h1>
-        <p className="mx-auto mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
-          World-class physiotherapy backed by science, delivered with precision.
-          Recover faster. Move better. Live without limits.
-        </p>
-        <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a
-            href="#contact"
-            onClick={(e) => handleSmoothScroll(e, "#contact")}
-            className="group inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:shadow-xl hover:shadow-primary/30 hover:brightness-110"
-          >
-            Book Appointment
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
-          <a
-            href="#services"
-            onClick={(e) => handleSmoothScroll(e, "#services")}
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-8 py-4 text-base font-medium text-foreground shadow-sm transition-all hover:border-primary/30 hover:shadow-md"
-          >
-            Explore Services
-          </a>
-        </div>
+      <div className="relative z-10 mx-auto max-w-6xl px-6 py-40 text-center lg:px-8 lg:py-48">
+        <FadeIn delay={100} direction="up" duration={1000}>
+          <div className="mx-auto mb-8 inline-flex items-center gap-2.5 rounded-full border border-primary/20 bg-card px-5 py-2 shadow-sm">
+            <span className="h-2.5 w-2.5 rounded-full bg-primary" />
+            <span className="text-sm font-semibold tracking-wide text-primary">
+              Premium Physiotherapy
+            </span>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={250} direction="up" duration={1000}>
+          <h1 className="text-balance text-5xl font-extrabold leading-[1.05] tracking-tight text-heading sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
+            Your body deserves
+            <br />
+            <span className="text-primary">expert care.</span>
+          </h1>
+        </FadeIn>
+
+        <FadeIn delay={450} direction="up" duration={1000}>
+          <p className="mx-auto mt-10 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl md:text-2xl md:leading-relaxed">
+            World-class physiotherapy backed by science, delivered with
+            precision. Recover faster. Move better. Live without limits.
+          </p>
+        </FadeIn>
+
+        <FadeIn delay={650} direction="up" duration={1000}>
+          <div className="mt-14 flex flex-col items-center justify-center gap-5 sm:flex-row">
+            <a
+              href="#contact"
+              onClick={(e) => handleSmoothScroll(e, "#contact")}
+              className="group inline-flex items-center gap-2.5 rounded-full bg-primary px-10 py-5 text-lg font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all duration-500 hover:shadow-xl hover:shadow-primary/30 hover:brightness-110"
+            >
+              Book Appointment
+              <ArrowRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-1" />
+            </a>
+            <a
+              href="#services"
+              onClick={(e) => handleSmoothScroll(e, "#services")}
+              className="inline-flex items-center gap-2.5 rounded-full border border-border bg-card px-10 py-5 text-lg font-medium text-foreground shadow-sm transition-all duration-500 hover:border-primary/30 hover:shadow-md"
+            >
+              Explore Services
+            </a>
+          </div>
+        </FadeIn>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-        <div className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-primary/30 p-1.5">
-          <div className="h-2 w-1 animate-bounce rounded-full bg-primary" />
-        </div>
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+        <FadeIn delay={1000} direction="none" duration={1200}>
+          <div className="flex h-12 w-7 items-start justify-center rounded-full border-2 border-primary/30 p-2">
+            <div className="h-2.5 w-1.5 animate-bounce rounded-full bg-primary" />
+          </div>
+        </FadeIn>
       </div>
     </section>
   )

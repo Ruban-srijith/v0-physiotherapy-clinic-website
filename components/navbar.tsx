@@ -41,29 +41,29 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out ${
         scrolled
-          ? "bg-card/80 shadow-sm backdrop-blur-xl border-b border-border"
+          ? "bg-card/90 shadow-sm backdrop-blur-xl border-b border-border"
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
         <a
           href="#"
           onClick={(e) => handleSmoothScroll(e, "#")}
-          className="text-xl font-bold tracking-tight text-heading"
+          className="text-2xl font-bold tracking-tight text-heading transition-colors duration-300"
         >
           Apex<span className="text-primary">Physio</span>
         </a>
 
         {/* Desktop nav */}
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-10 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={(e) => handleSmoothScroll(e, link.href)}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="text-sm font-medium text-muted-foreground transition-colors duration-300 hover:text-foreground"
             >
               {link.label}
             </a>
@@ -71,7 +71,7 @@ export function Navbar() {
           <a
             href="#contact"
             onClick={(e) => handleSmoothScroll(e, "#contact")}
-            className="rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-md shadow-primary/20 transition-all hover:shadow-lg hover:shadow-primary/30 hover:brightness-110"
+            className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-md shadow-primary/20 transition-all duration-500 hover:shadow-lg hover:shadow-primary/30 hover:brightness-110"
           >
             Book Appointment
           </a>
@@ -92,29 +92,31 @@ export function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="border-t border-border bg-card/95 backdrop-blur-xl md:hidden">
-          <div className="flex flex-col gap-1 px-6 py-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleSmoothScroll(e, link.href)}
-                className="rounded-lg px-4 py-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-              >
-                {link.label}
-              </a>
-            ))}
+      <div
+        className={`overflow-hidden border-t border-border bg-card/95 backdrop-blur-xl md:hidden transition-all duration-500 ease-out ${
+          mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 border-t-0"
+        }`}
+      >
+        <div className="flex flex-col gap-2 px-6 py-5">
+          {navLinks.map((link) => (
             <a
-              href="#contact"
-              onClick={(e) => handleSmoothScroll(e, "#contact")}
-              className="mt-2 rounded-full bg-primary px-5 py-3 text-center text-sm font-medium text-primary-foreground transition-all hover:brightness-110"
+              key={link.href}
+              href={link.href}
+              onClick={(e) => handleSmoothScroll(e, link.href)}
+              className="rounded-xl px-4 py-3.5 text-base font-medium text-muted-foreground transition-colors duration-300 hover:bg-secondary hover:text-foreground"
             >
-              Book Appointment
+              {link.label}
             </a>
-          </div>
+          ))}
+          <a
+            href="#contact"
+            onClick={(e) => handleSmoothScroll(e, "#contact")}
+            className="mt-3 rounded-full bg-primary px-6 py-4 text-center text-base font-semibold text-primary-foreground transition-all duration-500 hover:brightness-110"
+          >
+            Book Appointment
+          </a>
         </div>
-      )}
+      </div>
     </nav>
   )
 }
