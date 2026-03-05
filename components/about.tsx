@@ -12,13 +12,13 @@ export function About() {
     <section id="about" className="relative py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section label */}
-        <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-primary">
+        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
           About Us
         </p>
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
           {/* Text column */}
           <div>
-            <h2 className="text-balance text-4xl font-bold leading-tight tracking-tight text-foreground md:text-5xl">
+            <h2 className="text-balance text-4xl font-bold leading-tight tracking-tight text-heading md:text-5xl">
               Redefining recovery
               <br />
               through precision.
@@ -39,11 +39,13 @@ export function About() {
             {/* Stats */}
             <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4">
               {stats.map((stat) => (
-                <div key={stat.label}>
-                  <p className="text-3xl font-bold text-foreground md:text-4xl">
+                <div key={stat.label} className="rounded-2xl bg-card p-4 shadow-sm border border-border">
+                  <p className="text-3xl font-bold text-heading md:text-4xl">
                     {stat.value}
                   </p>
-                  <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {stat.label}
+                  </p>
                 </div>
               ))}
             </div>
@@ -51,7 +53,7 @@ export function About() {
 
           {/* Image column */}
           <div className="relative">
-            <div className="overflow-hidden rounded-3xl">
+            <div className="overflow-hidden rounded-3xl shadow-xl">
               <Image
                 src="/images/about.jpg"
                 alt="Interior of Apex Physio modern treatment facility"
@@ -61,7 +63,7 @@ export function About() {
               />
             </div>
             {/* Floating card */}
-            <div className="absolute -bottom-6 -left-6 rounded-2xl border border-border bg-card/80 p-6 shadow-2xl backdrop-blur-xl md:-bottom-8 md:-left-8">
+            <div className="absolute -bottom-6 -left-6 rounded-2xl border border-border bg-card p-6 shadow-xl md:-bottom-8 md:-left-8">
               <p className="text-3xl font-bold text-primary">{"#1"}</p>
               <p className="mt-1 text-sm text-muted-foreground">
                 Rated Clinic in the Region
