@@ -36,16 +36,7 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-6xl px-6 py-40 text-center lg:px-8 lg:py-48">
-        <FadeIn delay={100} direction="up" duration={1000}>
-          <div className="mx-auto mb-8 inline-flex items-center gap-2.5 rounded-full border border-primary/20 bg-card px-5 py-2 shadow-sm">
-            <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-            <span className="text-sm font-semibold tracking-wide text-primary">
-              Premium Physiotherapy
-            </span>
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={250} direction="up" duration={1000}>
+        <FadeIn delay={150} direction="up" duration={1000}>
           <h1 className="text-balance text-5xl font-extrabold leading-[1.05] tracking-tight text-heading sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
             Your body deserves
             <br />
