@@ -45,7 +45,7 @@ export function Hero() {
         </FadeIn>
 
         <FadeIn delay={450} direction="up" duration={1000}>
-          <p className="mx-auto mt-10 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl md:text-2xl md:leading-relaxed">
+          <p className="mx-auto mt-10 max-w-2xl text-pretty text-lg font-medium leading-relaxed text-foreground/80 sm:text-xl md:text-2xl md:leading-relaxed">
             World-class physiotherapy backed by science, delivered with
             precision. Recover faster. Move better. Live without limits.
           </p>
