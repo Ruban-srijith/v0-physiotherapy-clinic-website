@@ -34,7 +34,7 @@ export function About() {
 
             <FadeIn delay={200}>
               <p className="mt-10 text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl md:leading-relaxed">
-                At Apex Physio, we combine advanced clinical expertise with
+                At Therapy at Home, we combine advanced clinical expertise with
                 cutting-edge technology to deliver outcomes that redefine what
                 recovery means. Every treatment plan is meticulously crafted for
                 your unique anatomy and goals.
