@@ -53,7 +53,7 @@ export function Navbar() {
           onClick={(e) => handleSmoothScroll(e, "#")}
           className="text-2xl font-bold tracking-tight text-heading transition-colors duration-300"
         >
-          Apex<span className="text-primary">Physio</span>
+          Therapy at <span className="text-primary">Home</span>
         </a>
 
         {/* Desktop nav */}

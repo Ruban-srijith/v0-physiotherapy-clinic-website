@@ -11,7 +11,7 @@ export function Footer() {
             href="#"
             className="text-2xl font-bold tracking-tight text-heading"
           >
-            Apex<span className="text-primary">Physio</span>
+            Therapy at <span className="text-primary">Home</span>
           </a>
           <div className="flex gap-10">
             {["About", "Services", "Testimonials", "Contact"].map((link) => (
@@ -25,7 +25,7 @@ export function Footer() {
             ))}
           </div>
           <p className="text-sm text-muted-foreground md:text-base">
-            {"© 2026 Apex Physio. All rights reserved."}
+            {"© 2026 Therapy at Home. All rights reserved."}
           </p>
         </div>
       </FadeIn>
