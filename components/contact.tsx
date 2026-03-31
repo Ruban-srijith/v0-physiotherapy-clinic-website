@@ -1,8 +1,11 @@
-"use client"
+"use client";
 
-import { useState, type FormEvent } from "react"
-import { MapPin, Phone, Mail, Clock, Send, Check } from "lucide-react"
-import { FadeIn } from "./fade-in"
+import { useState, type FormEvent, useRef } from "react";
+import { MapPin, Phone, Mail, Clock, Send, Check, AlertCircle } from "lucide-react";
+import { FadeIn } from "./fade-in";
+
+// ✅ Paste your Google Apps Script Web App URL here
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyzUdeM72Qc6O59xRdUPEKGn949ayUqHdQTIR-BthNKloA_cZiukiL0DW2y-1Q5vqKVWQ/exec";
 
 const info = [
   {
@@ -13,15 +16,46 @@ const info = [
   { icon: Phone, label: "Call Us", value: "+1 (555) 234-5678" },
   { icon: Mail, label: "Email Us", value: "hello@apexphysio.com" },
   { icon: Clock, label: "Hours", value: "Mon - Sat, 7 AM - 8 PM" },
-]
+];
+
+type SubmitState = "idle" | "loading" | "success" | "error";
 
 export function Contact() {
-  const [submitted, setSubmitted] = useState(false)
+  const [submitState, setSubmitState] = useState<SubmitState>("idle");
+  const formRef = useRef<HTMLFormElement>(null);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 3000)
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setSubmitState("loading");
+
+    const formData = new FormData(e.currentTarget);
+    const payload = {
+      name: formData.get("name") as string,
+      phone: formData.get("phone") as string,
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
+    };
+
+    try {
+      // Google Apps Script requires no-cors mode — response will be opaque
+      // We treat the fetch completing without a network error as success
+      await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors", // Required for Apps Script cross-origin requests
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      setSubmitState("success");
+      formRef.current?.reset();
+
+      // Reset back to idle after 4 seconds
+      setTimeout(() => setSubmitState("idle"), 4000);
+    } catch (err) {
+      console.error("Submission error:", err);
+      setSubmitState("error");
+      setTimeout(() => setSubmitState("idle"), 4000);
+    }
   }
 
   return (
@@ -54,7 +88,8 @@ export function Contact() {
                 Book an Appointment
               </h3>
 
-              {submitted ? (
+              {/* Success state */}
+              {submitState === "success" && (
                 <div className="flex flex-col items-center justify-center py-20 text-center">
                   <div className="mb-7 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
                     <Check className="h-10 w-10 text-primary" />
@@ -66,82 +101,134 @@ export function Contact() {
                     {"We'll contact you within 24 hours to confirm."}
                   </p>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-7">
+              )}
+
+              {/* Error state */}
+              {submitState === "error" && (
+                <div className="flex flex-col items-center justify-center py-20 text-center">
+                  <div className="mb-7 flex h-20 w-20 items-center justify-center rounded-full bg-destructive/10">
+                    <AlertCircle className="h-10 w-10 text-destructive" />
+                  </div>
+                  <p className="text-2xl font-semibold text-foreground">
+                    Something went wrong
+                  </p>
+                  <p className="mt-3 text-lg text-muted-foreground">
+                    Please try again or contact us directly by phone.
+                  </p>
+                </div>
+              )}
+
+              {/* Form — hidden during success/error, visible otherwise */}
+              <form
+                ref={formRef}
+                onSubmit={handleSubmit}
+                className={`flex flex-col gap-7 ${submitState === "success" || submitState === "error" ? "hidden" : ""}`}
+              >
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="mb-2.5 block text-sm font-medium text-foreground md:text-base"
+                  >
+                    Full Name
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                    placeholder="John Doe"
+                    className="w-full rounded-xl border border-border bg-card px-5 py-4 text-base text-foreground placeholder:text-muted-foreground/60 transition-all duration-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                  />
+                </div>
+
+                <div className="grid gap-7 sm:grid-cols-2">
                   <div>
                     <label
-                      htmlFor="name"
+                      htmlFor="phone"
                       className="mb-2.5 block text-sm font-medium text-foreground md:text-base"
                     >
-                      Full Name
+                      Phone
                     </label>
                     <input
-                      id="name"
-                      type="text"
+                      id="phone"
+                      name="phone"
+                      type="tel"
                       required
-                      placeholder="John Doe"
+                      placeholder="+1 (555) 000-0000"
                       className="w-full rounded-xl border border-border bg-card px-5 py-4 text-base text-foreground placeholder:text-muted-foreground/60 transition-all duration-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                     />
                   </div>
-
-                  <div className="grid gap-7 sm:grid-cols-2">
-                    <div>
-                      <label
-                        htmlFor="phone"
-                        className="mb-2.5 block text-sm font-medium text-foreground md:text-base"
-                      >
-                        Phone
-                      </label>
-                      <input
-                        id="phone"
-                        type="tel"
-                        required
-                        placeholder="+1 (555) 000-0000"
-                        className="w-full rounded-xl border border-border bg-card px-5 py-4 text-base text-foreground placeholder:text-muted-foreground/60 transition-all duration-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="mb-2.5 block text-sm font-medium text-foreground md:text-base"
-                      >
-                        Email
-                      </label>
-                      <input
-                        id="email"
-                        type="email"
-                        required
-                        placeholder="john@example.com"
-                        className="w-full rounded-xl border border-border bg-card px-5 py-4 text-base text-foreground placeholder:text-muted-foreground/60 transition-all duration-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                      />
-                    </div>
-                  </div>
-
                   <div>
                     <label
-                      htmlFor="message"
+                      htmlFor="email"
                       className="mb-2.5 block text-sm font-medium text-foreground md:text-base"
                     >
-                      Message
+                      Email
                     </label>
-                    <textarea
-                      id="message"
-                      rows={5}
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
                       required
-                      placeholder="Tell us about your condition or goals..."
-                      className="w-full resize-none rounded-xl border border-border bg-card px-5 py-4 text-base text-foreground placeholder:text-muted-foreground/60 transition-all duration-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                      placeholder="john@example.com"
+                      className="w-full rounded-xl border border-border bg-card px-5 py-4 text-base text-foreground placeholder:text-muted-foreground/60 transition-all duration-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                     />
                   </div>
+                </div>
 
-                  <button
-                    type="submit"
-                    className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-primary px-10 py-5 text-lg font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all duration-500 hover:shadow-xl hover:shadow-primary/30 hover:brightness-110"
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="mb-2.5 block text-sm font-medium text-foreground md:text-base"
                   >
-                    Request Appointment
-                    <Send className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-1" />
-                  </button>
-                </form>
-              )}
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    required
+                    placeholder="Tell us about your condition or goals..."
+                    className="w-full resize-none rounded-xl border border-border bg-card px-5 py-4 text-base text-foreground placeholder:text-muted-foreground/60 transition-all duration-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={submitState === "loading"}
+                  className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-primary px-10 py-5 text-lg font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all duration-500 hover:shadow-xl hover:shadow-primary/30 hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-70"
+                >
+                  {submitState === "loading" ? (
+                    <>
+                      <svg
+                        className="h-5 w-5 animate-spin"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        />
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                        />
+                      </svg>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Request Appointment
+                      <Send className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-1" />
+                    </>
+                  )}
+                </button>
+              </form>
             </div>
           </FadeIn>
 
@@ -172,16 +259,14 @@ export function Contact() {
                   Accepted Insurance Partners
                 </p>
                 <div className="mt-5 flex flex-wrap gap-3">
-                  {["Aetna", "Blue Cross", "Cigna", "United"].map(
-                    (partner) => (
-                      <span
-                        key={partner}
-                        className="rounded-full border border-border bg-secondary px-5 py-2.5 text-sm font-medium text-secondary-foreground md:text-base"
-                      >
-                        {partner}
-                      </span>
-                    )
-                  )}
+                  {["Aetna", "Blue Cross", "Cigna", "United"].map((partner) => (
+                    <span
+                      key={partner}
+                      className="rounded-full border border-border bg-secondary px-5 py-2.5 text-sm font-medium text-secondary-foreground md:text-base"
+                    >
+                      {partner}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
@@ -189,5 +274,5 @@ export function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }
