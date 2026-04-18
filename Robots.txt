@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /thank-you/
+Disallow: /?s=
+
+Sitemap: https://therapyathome.in/sitemap.xml
