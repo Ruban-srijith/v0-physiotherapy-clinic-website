@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   title: 'Therapy at Home | Premium Physiotherapy Services',
   description:
     'Experience world-class physiotherapy with cutting-edge treatments for back pain, sports rehabilitation, and post-surgery recovery.',
-  generator: 'v0.app',
   icons: {
     icon: [
       {

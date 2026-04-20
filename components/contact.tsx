@@ -11,11 +11,11 @@ const info = [
   {
     icon: MapPin,
     label: "Visit Us",
-    value: "123 Wellness Blvd, Suite 400",
+    value: "126/ eadamal street, Hema dental clinic near, Theni-625531",
   },
-  { icon: Phone, label: "Call Us", value: "+1 (555) 234-5678" },
-  { icon: Mail, label: "Email Us", value: "hello@apexphysio.com" },
-  { icon: Clock, label: "Hours", value: "Mon - Sat, 7 AM - 8 PM" },
+  { icon: Phone, label: "Call Us", value: "+91 93427 05088" },
+  { icon: Mail, label: "Email Us", value: "Therapy at Home" },
+  { icon: Clock, label: "Hours", value: "Mon - Sat, 7 AM - 9 PM" },
 ];
 
 type SubmitState = "idle" | "loading" | "success" | "error";
