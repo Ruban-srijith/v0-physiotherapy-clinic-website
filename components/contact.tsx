@@ -14,7 +14,7 @@ const info = [
     value: "126/ eadamal street, Hema dental clinic near, Theni-625531",
   },
   { icon: Phone, label: "Call Us", value: "+91 93427 05088" },
-  { icon: Mail, label: "Email Us", value: "Therapy at Home" },
+  { icon: Mail, label: "Email Us", value: "theraphyathome888@gmail.com" },
   { icon: Clock, label: "Hours", value: "Mon - Sat, 7 AM - 9 PM" },
 ];
 
