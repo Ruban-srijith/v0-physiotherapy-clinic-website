@@ -26,7 +26,7 @@ const socials = [
   },
   {
     label: "Instagram",
-    href: "https://www.instagram.com/therapyathome_theni",
+    href: "https://www.instagram.com/therapy_at_home.in/",
     color: "bg-gradient-to-br from-[#f58529] via-[#dd2a7b] to-[#8134af] hover:opacity-90",
     icon: (
       <svg viewBox="0 0 24 24" className="h-5 w-5 fill-white" xmlns="http://www.w3.org/2000/svg">
