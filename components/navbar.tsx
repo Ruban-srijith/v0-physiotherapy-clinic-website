@@ -36,7 +36,8 @@ export function Navbar() {
     }`}>
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 lg:px-8">
         <a href="#" onClick={(e) => handleSmoothScroll(e, "#")}
-          className="text-2xl font-bold tracking-tight text-heading">
+          className="flex items-center gap-2 text-2xl font-bold tracking-tight text-heading">
+          <img src="/logo.png" alt="Therapy at Home Logo" className="h-10 w-auto" />
           Therapy at <span className="text-primary">Home</span>
         </a>
 
