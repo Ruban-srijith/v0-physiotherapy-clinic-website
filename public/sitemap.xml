@@ -1,53 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+import type { MetadataRoute } from 'next'
 
-  <url>
-    <loc>https://therapyathome.in/</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = 'https://therapyathome.in'
+  const lastModified = new Date()
 
-  <url>
-    <loc>https://therapyathome.in/blog</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  const blogSlugs = [
+    'physiotherapy-at-home-coimbatore',
+    'back-pain-not-going-away',
+    'what-is-abhyanga-massage',
+    'why-home-physiotherapy-treatment-growing-india',
+    'home-physiotherapy-vs-clinic-coimbatore',
+    'physiotherapy-ayurveda-home-theni',
+    'knee-pain-not-going-away',
+    'frozen-shoulder-home-physiotherapy',
+    'sciatica-pain-relief-at-home',
+    'cervical-spondylosis-desk-jobs',
+    'arthritis-elderly-parents-home-care',
+    'plantain-leaf-bath-therapy',
+  ]
 
-<url>
-  <loc>https://therapyathome.in/blog/back-pain-not-going-away</loc>
-  <lastmod>2026-05-10</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
+  const staticRoutes: MetadataRoute.Sitemap = [
+    {
+      url: baseUrl,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 1,
+    },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+  ]
 
-<url>
-  <loc>https://therapyathome.in/blog/physiotherapy-at-home-coimbatore</loc>
-  <lastmod>2026-05-15</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
+  const blogRoutes: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
+    url: `${baseUrl}/blog/${slug}`,
+    lastModified,
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }))
 
-<url>
-  <loc>https://therapyathome.in/blog/what-is-abhyanga-massage</loc>
-  <lastmod>2026-05-20</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://therapyathome.in/blog/home-physiotherapy-vs-clinic-coimbatore</loc>
-  <lastmod>2026-05-25</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://therapyathome.in/blog/physiotherapy-ayurveda-home-theni</loc>
-  <lastmod>2026-06-01</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
-</urlset> 
+  return [...staticRoutes, ...blogRoutes]
+}
