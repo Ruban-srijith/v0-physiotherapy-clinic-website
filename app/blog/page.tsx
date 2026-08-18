@@ -89,6 +89,60 @@ const posts = [
     tagColor: 'bg-yellow-100 text-yellow-700',
     readTime: '6 min read',
   },
+  {
+    slug: 'back-pain-physiotherapy-at-home-chennai',
+    title: 'Back Pain Physiotherapy at Home in Chennai: What You Need to Know',
+    description:
+      'Get relief from back pain without long clinic waits or travel. Learn how home physiotherapy for Chennai residents works in real life.',
+    tag: 'Chennai',
+    tagColor: 'bg-blue-100 text-blue-700',
+    readTime: '6 min read',
+  },
+  {
+    slug: 'full-body-relaxation-massage-at-home-chennai',
+    title: 'Full-Body Relaxation Massage at Home in Chennai: Is It Worth It?',
+    description:
+      'A complete guide to full-body relaxation massage at home in Chennai — including benefits, what to expect, and when it helps most.',
+    tag: 'Massage',
+    tagColor: 'bg-pink-100 text-pink-700',
+    readTime: '5 min read',
+  },
+  {
+    slug: 'knee-pain-physiotherapy-at-home-chennai',
+    title: 'Knee Pain Physiotherapy at Home in Chennai: Relief Without the Clinic',
+    description:
+      'Simple, practical physiotherapy guidance for knee pain in Chennai — covering causes, treatment goals, and home-based recovery options.',
+    tag: 'Knee Care',
+    tagColor: 'bg-yellow-100 text-yellow-700',
+    readTime: '6 min read',
+  },
+  {
+    slug: 'elderly-care-arthritis-physiotherapy-at-home-chennai',
+    title: 'Elderly Care & Arthritis Physiotherapy at Home in Chennai',
+    description:
+      'Gentle, practical physiotherapy guidance for elderly patients and arthritis sufferers in Chennai — built for safer movement and less joint pain at home.',
+    tag: 'Elderly Care',
+    tagColor: 'bg-violet-100 text-violet-700',
+    readTime: '6 min read',
+  },
+  {
+    slug: 'post-surgery-recovery-physiotherapy-at-home-chennai',
+    title: 'Post-Surgery Recovery Physiotherapy at Home in Chennai',
+    description:
+      'A structured, low-stress recovery plan after surgery — with home-based rehab that helps you regain mobility without the stress of hospital visits.',
+    tag: 'Recovery',
+    tagColor: 'bg-emerald-100 text-emerald-700',
+    readTime: '7 min read',
+  },
+  {
+    slug: 'stroke-recovery-physiotherapy-at-home-chennai',
+    title: 'Stroke Recovery Physiotherapy at Home in Chennai',
+    description:
+      'A practical guide to improving strength, balance, and confidence at home after stroke with tailored physiotherapy support and safe progression.',
+    tag: 'Neurology',
+    tagColor: 'bg-cyan-100 text-cyan-700',
+    readTime: '7 min read',
+  },
   {slug: 'knee-pain-not-going-away',  
     title: 'Knee Pain Not Going Away? Here’s What You Need to Know',
     description: 'Simple, physiotherapist-approved exercises to relieve knee pain at home. Takes only 10 minutes a day.',
