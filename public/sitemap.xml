@@ -1,87 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://therapyathome.in</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://therapyathome.in/blog</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://therapyathome.in/blog/physiotherapy-at-home-coimbatore</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://therapyathome.in/blog/back-pain-not-going-away</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://therapyathome.in/blog/what-is-abhyanga-massage</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://therapyathome.in/blog/why-home-physiotherapy-treatment-growing-india</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://therapyathome.in/blog/home-physiotherapy-vs-clinic-coimbatore</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://therapyathome.in/blog/physiotherapy-ayurveda-home-theni</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://therapyathome.in/blog/knee-pain-not-going-away</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://therapyathome.in/blog/frozen-shoulder-home-physiotherapy</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://therapyathome.in/blog/sciatica-pain-relief-at-home</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://therapyathome.in/blog/cervical-spondylosis-desk-jobs</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://therapyathome.in/blog/arthritis-elderly-parents-home-care</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://therapyathome.in/blog/plantain-leaf-bath-therapy</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+<url>
+<loc>https://therapyathome.in</loc>
+<lastmod>2026-08-18</lastmod>
+<changefreq>weekly</changefreq>
+<priority>1.0</priority>
+</url>
+<url>
+<loc>https://therapyathome.in/blog</loc>
+<lastmod>2026-08-18</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://therapyathome.in/blog/physiotherapy-at-home-coimbatore</loc>
+<lastmod>2026-08-11</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://therapyathome.in/blog/back-pain-not-going-away</loc>
+<lastmod>2026-08-11</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://therapyathome.in/blog/what-is-abhyanga-massage</loc>
+<lastmod>2026-08-11</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://therapyathome.in/blog/why-home-physiotherapy-treatment-growing-india</loc>
+<lastmod>2026-08-11</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://therapyathome.in/blog/home-physiotherapy-vs-clinic-coimbatore</loc>
+<lastmod>2026-08-11</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://therapyathome.in/blog/physiotherapy-ayurveda-home-theni</loc>
+<lastmod>2026-08-11</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://therapyathome.in/blog/knee-pain-not-going-away</loc>
+<lastmod>2026-08-11</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://therapyathome.in/blog/frozen-shoulder-home-physiotherapy</loc>
+<lastmod>2026-08-11</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://therapyathome.in/blog/sciatica-pain-relief-at-home</loc>
+<lastmod>2026-08-11</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://therapyathome.in/blog/cervical-spondylosis-desk-jobs</loc>
+<lastmod>2026-08-11</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://therapyathome.in/blog/arthritis-elderly-parents-home-care</loc>
+<lastmod>2026-08-11</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://therapyathome.in/blog/plantain-leaf-bath-therapy</loc>
+<lastmod>2026-08-11</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://therapyathome.in/blog/back-pain-physiotherapy-at-home-chennai</loc>
+<lastmod>2026-08-18</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://therapyathome.in/blog/knee-pain-physiotherapy-at-home-chennai</loc>
+<lastmod>2026-08-18</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://therapyathome.in/blog/stroke-recovery-physiotherapy-at-home-chennai</loc>
+<lastmod>2026-08-18</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://therapyathome.in/blog/post-surgery-recovery-physiotherapy-at-home-chennai</loc>
+<lastmod>2026-08-18</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://therapyathome.in/blog/elderly-care-arthritis-physiotherapy-at-home-chennai</loc>
+<lastmod>2026-08-18</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://therapyathome.in/blog/full-body-relaxation-massage-at-home-chennai</loc>
+<lastmod>2026-08-18</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
 </urlset>
